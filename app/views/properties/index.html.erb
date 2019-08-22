@@ -1,0 +1,25 @@
+<div class="contaner">
+  <h1>物件一覧</h1>
+  <ul id="properties_list">
+    <li>
+      <p>物件名</p>
+      <p>賃料</p>
+      <p>住所</p>
+      <p>築年数</p>
+      <p>備考</p>
+    </li>
+    <% @properties.each do |record| %>
+    <li>
+      <p class="property_name"><%= record.name %></p>
+      <p class="property_price"><%= record.price %></p>
+      <p class="property_address"><%= record.address %></p>
+      <p class="property_building_year"><%= record.building_year %></p>
+      <p class="property_note"><%= record.note %></p>
+      <p class="property_btn"><%= link_to "詳細", property_path(record.id) %></p>
+      <p class="property_btn"><%= link_to "編集", edit_property_path(record.id) %></p>
+      <p class="property_btn"><%= link_to "削除", property_path(record.id), method: :delete %></p>
+    </li>
+    <% end %>
+  </ul>
+  <%= link_to "物件を登録する", new_property_path %>
+</div>

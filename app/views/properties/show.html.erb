@@ -1,0 +1,22 @@
+<div class="contaner">
+  <ul class="property_info">
+    <li><span>物件名:</span><%= @property.name %></li>
+    <li><span>賃料:</span><%= @property.price %>円</li>
+    <li><span>住所:</span><%= @property.address %></li>
+    <li><span>築年数:</span><%= @property.building_year %>年</li>
+    <li><span>備考:</span><%= @property.note %></li>
+  </ul>
+  <hr>
+  <% @stations.each do |record| %>
+  <h3>最寄り駅<%= @number += 1 %></h3>
+  <ul class="property_info">
+    <li><span>路線名:</span><%= record.line %></li>
+    <li><span>駅名:</span><%= record.name %></li>
+    <li><span>徒歩分数:</span><%= record.walk_time %>分</li>
+  </ul>
+  <% end %>
+  <div>
+    <%= link_to "編集", edit_property_path %> |
+    <%= link_to "戻る", properties_path %>
+  </div>
+</div>

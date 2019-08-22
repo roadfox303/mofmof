@@ -1,0 +1,39 @@
+<%= form_for @property do |f| %>
+<% if @property.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= @property.errors.count %>件のエラーがあります。</h2>
+    <ul>
+    <% @property.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+<dl>
+  <dt>物件名</dt>
+  <dd><%= f.text_field :name %></dd>
+  <dt>賃料</dt>
+  <dd><%= f.text_field :price %><span>円</span></dd>
+  <dt>住所</dt>
+  <dd><%= f.text_field :address %></dd>
+  <dt>築年数</dt>
+  <dd><%= f.text_field :building_year %><span>年</span></dd>
+  <dt>備考</dt>
+  <dd><%= f.text_area :note %></dd>
+</dl>
+<hr>
+  <% @number.times do |i| %>
+    <%= f.fields_for :stations do |f| %>
+    <h3>最寄り駅<%= i += 1 %></h3>
+    <dl>
+      <dt>路線名</dt>
+      <dd><%= f.text_field :line %></dd>
+      <dt>駅名</dt>
+      <dd><%= f.text_field :name %></dd>
+      <dt>徒歩分数</dt>
+      <dd><%= f.text_field :walk_time %><span>分</span></dd>
+    </dl>
+    <% end %>
+  <% end %>
+  <%= f.submit "#{@button}" %>
+<% end %>
