@@ -68,12 +68,17 @@ class PropertiesController < ApplicationController
   end
 
   def set_loop(button)
+    max_station = 2
+    record_stations = @property.stations.size
     @button = button
-    if @property.stations.size < 2
+    @loop = 1
+    if record_stations == 0
       @property.stations.build
-      @number = 2
-    else
-      @number = 1
+      @loop = max_station
+    elsif record_stations < max_station
+      (max_station - record_stations).times do
+        @property.stations.build
+      end
     end
   end
 

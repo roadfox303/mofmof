@@ -22,7 +22,7 @@
   <dd><%= f.text_area :note %></dd>
 </dl>
 <hr>
-  <% @number.times do |i| %>
+  <% @loop.times do |i| %>
     <%= f.fields_for :stations do |f| %>
     <h3>最寄り駅<%= i += 1 %></h3>
     <dl>
