@@ -1,0 +1,62 @@
+// Place all the styles related to the properties controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+ul,dd{
+  margin: 0;
+  padding: 0;
+}
+a {
+  color: #555555;
+}
+a:visited {
+  color: #000000;
+}
+a:hover {
+  color: #0066ff;
+}
+#properties_list {
+  list-style: none;
+  display: table;
+  width: 100%;
+}
+#properties_list li {
+  display: table-row;
+}
+#properties_list p {
+  display: table-cell;
+  vertical-align: middle
+}
+#properties_list li:first-child p {
+  text-align: center;
+  font-weight: bold;
+}
+#properties_list .property_name {
+  width: 8%;
+}
+#properties_list .property_price {
+  width: 8%;
+}
+#properties_list .property_address {
+  width: 16%;
+}
+#properties_list .property_building_year {
+  width: 5%;
+}
+#properties_list .property_note {
+  width: 55%;
+}
+#properties_list .property_price,#properties_list .property_building_year {
+  text-align: center;
+}
+.property_btn{
+  padding: 0 0.2rem;
+}
+.property_info li {
+  padding-left: 2rem;
+  margin-bottom: 2rem;
+}
+.property_info li span {
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
